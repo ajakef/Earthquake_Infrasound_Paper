@@ -1,5 +1,6 @@
-#Code for Anderson et al. (2023) Earthquake Infrasound Paper in Nature Communications Earth and Environment
+# Code for Anderson et al. (2023) Earthquake Infrasound Paper in Nature Communications Earth and Environment
 
+### Contents
 This repository includes Python code and data to reproduce figures 4-6 in the paper.
 
 Folder 'code/' contains the code to make these figures.
@@ -10,6 +11,7 @@ Folder 'data/' mostly contains empty placeholder folders that will eventually co
 
 Folder 'figures/' is an empty folder where the code will save figures.
 
+### Preparing to run code
 To run the code, an appropriate environment with Python and dependency packages must be installed. We recommend installing Anaconda or Miniconda, then creating the environment with the following commands:
 
 conda deactivate
@@ -18,11 +20,9 @@ conda activate earthquake_infrasound
 
 These commands also install Spyder, a convenient interface for scientific programming, but you can use a different IDE or even a plain ipython terminal if you want. Spyder supports breaking code into cells using the '#%%' symbol, and we strongly recommend that you run those cells one at a time and in order. Whatever interface you use, you must open it from within the 'supplement/' folder (or set that to your working directory); otherwise, the paths in the code will not work. 
 
+### Re-creating paper figures
 First, open and run 'download_waveforms.py' to download all the infrasound waveform data from IRIS-Data Management Center. The waveforms will be stored in 'data/downloads/waveforms/', and minimally-preprocessed data for each event will be written to files in 'data/'.
 
 Run 'clean_aftershock.py' to re-create figure 4, 'clean_MonteCristo.py' to re-create figure 5, and 'backprojection_map.py' to re-create figure 6. To save time, expensive analyses are run in 'if True:' blocks, and their results are saved in pickle files.
 
 After running those analyses and saving the data, you can avoid spending the significant time it takes to re-run them by changing those blocks to 'if False:', and it will instead obtain those results by loading the pickle files. 
-
-
-
