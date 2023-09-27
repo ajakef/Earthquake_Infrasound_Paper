@@ -1,1 +1,3 @@
-../../../../lib/clean/cleanbf/__init__.py
+from cleanbf.core import *
+from cleanbf.plots import *
+from cleanbf.synthetic import *
