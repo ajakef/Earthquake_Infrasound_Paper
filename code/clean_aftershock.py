@@ -1,1 +1,0 @@
-../../../supplement/code/clean_aftershock.py
