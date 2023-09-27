@@ -1,1 +1,1 @@
-# Earthquake_Infrasound_Paper
+../../supplement/README.txt
