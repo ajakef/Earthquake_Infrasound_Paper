@@ -65,7 +65,7 @@ plt.plot(np.arange(len(eq_stream[0])-skip) * 0.01 - start_offset, gem_bitweight 
 # set_xlim leaves some padding; axis('image') changes the aspect ratio. This sets tight axis limits without forcing a bad aspect ratio.
 plt.gca().set_xbound(-start_offset,3600-start_offset) 
 plt.ylabel('Pa')
-plt.title('A. Infrasound Waveform', loc = 'left', fontsize = 'small')
+plt.title('a. Infrasound Waveform', loc = 'left', fontsize = 'small')
 plt.xticks(np.arange(0, 3001, 500), labels = [])
 plt.yticks(np.arange(-1,2)*0.025)
 
@@ -105,7 +105,7 @@ plt.axhline(slowness_threshold, color = 'black', lw = 0.5, ls = '--')
 plt.ylabel('s/km')
 plt.xticks(np.arange(0, 3001, 500), labels = [])
 plt.yticks([0,1,2,3])
-plt.title('B. Power vs. Time, Slowness', loc = 'left', fontsize = 'small')
+plt.title('b. Power vs. Time, Slowness', loc = 'left', fontsize = 'small')
 w = output['original_sh'] < 4
 
 plt.subplot(7,1,3)
@@ -114,7 +114,7 @@ plt.ylabel('degrees')
 plt.xticks(np.arange(0, 3001, 500), labels = [])
 plt.yticks(baz_ticks)
 for i in baz_ticks: plt.axhline(i, color = 'gray', lw = 0.25)
-plt.title('C. Power vs. Time, Backazimuth (Slowness > 2 s/km)', loc = 'left', fontsize = 'small')
+plt.title('c. Power vs. Time, Backazimuth (Slowness > 2 s/km)', loc = 'left', fontsize = 'small')
 
 plt.subplot(7,1,4)
 cleanbf.image(image_show_outliers(spec_baz), output['t']-(event - trace_start), baz, crosshairs = False)
@@ -122,7 +122,7 @@ plt.ylabel('degrees')#plt.xlabel('Time after earthquake (seconds)')
 plt.xticks(np.arange(0, 3001, 500), labels = [])
 plt.yticks(baz_ticks)
 for i in baz_ticks: plt.axhline(i, color = 'gray', lw = 0.25)
-plt.title('D. Power vs. Time, Backazimuth (Slowness > 2 s/km; above-ambient)', loc = 'left', fontsize = 'small')
+plt.title('d. Power vs. Time, Backazimuth (Slowness > 2 s/km; above-ambient)', loc = 'left', fontsize = 'small')
 
 plt.tight_layout()
 
@@ -171,7 +171,7 @@ plt.axhline(slowness_threshold, color = 'black', lw = 0.5, ls = '--')
 plt.ylabel('s/km')
 plt.xticks(np.arange(0, 3001, 500), labels = [])
 plt.yticks([0,1,2,3])
-plt.title('E. Power vs. Time, Slowness (3 sensors)', loc = 'left', fontsize = 'small')
+plt.title('e. Power vs. Time, Slowness (3 sensors)', loc = 'left', fontsize = 'small')
 w = output['original_sh'] < 4
 
 plt.subplot(7,1,6)
@@ -180,7 +180,7 @@ plt.ylabel('degrees')
 plt.xticks(np.arange(0, 3001, 500), labels = [])
 plt.yticks(baz_ticks)
 for i in baz_ticks: plt.axhline(i, color = 'gray', lw = 0.25)
-plt.title('F. Power vs. Time, Backazimuth (Slowness > 2 s/km)', loc = 'left', fontsize = 'small')
+plt.title('f. Power vs. Time, Backazimuth (Slowness > 2 s/km)', loc = 'left', fontsize = 'small')
 
 plt.subplot(7,1,7)
 im=cleanbf.image(image_show_outliers(spec_baz), output['t']-(event - loop_start), baz, crosshairs = False)
@@ -190,7 +190,7 @@ plt.ylabel('degrees')
 plt.xticks(np.arange(0, 3001, 500))
 plt.yticks(baz_ticks)
 for i in baz_ticks: plt.axhline(i, color = 'gray', lw = 0.25)
-plt.title('G. Power vs. Time, Backazimuth (Slowness > 2 s/km; above-ambient)', loc = 'left', fontsize = 'small')
+plt.title('g. Power vs. Time, Backazimuth (Slowness > 2 s/km; above-ambient)', loc = 'left', fontsize = 'small')
 
 
 #%%
@@ -204,5 +204,5 @@ fig.subplots_adjust(right=0.91)
 
 
 #%%
-plt.savefig('figures/Fig5_montecristo_17_3_paper.png')
+plt.savefig('figures/Fig5_montecristo_17_3_paper.png', dpi = 300)
 

@@ -37,7 +37,7 @@ for i in range(22):
 plt.axis('equal')
 plt.xlabel('Easting (m)')
 plt.ylabel('Northing (m)')
-plt.title('A. Station Map for XP.PARK', loc='left')
+plt.title('a. Station Map for XP.PARK', loc='left')
 plt.axis('equal')
 plt.legend(['Sub-array (N=3)', 'Full Array (N=22)'], loc = 'upper right', fontsize = 'small')
 
@@ -54,7 +54,7 @@ slowness_image(arrayResp, klim/100)
 
 plt.plot(*circle(2*np.pi * 2 / 0.333/100), 'k--')
 plt.plot(*circle(2*np.pi * 10 / 0.333/100), 'k--')
-plt.title('B. Array Response (N=3)', loc = 'left')
+plt.title('b. Array Response (N=3)', loc = 'left')
 plt.xlabel('$k_x$ (×$10^2$ rad/km)', labelpad = -1)
 plt.ylabel('$k_y$ (×$10^2$ rad/km)', labelpad = -1)
 
@@ -72,7 +72,7 @@ cbar = slowness_image(arrayResp, klim/100)
 cbar.set_label('Semblance')
 plt.plot(*circle(2*np.pi * 2 / 0.333/100), 'k--')
 plt.plot(*circle(2*np.pi * 10 / 0.333/100), 'k--')
-plt.title('C. Array Response (N=22)', loc = 'left')
+plt.title('c. Array Response (N=22)', loc = 'left')
 plt.xlabel('$k_x$ (×$10^2$ rad/km)', labelpad = -1)
 plt.ylabel('$k_y$ (×$10^2$ rad/km)', labelpad = -1)
 
@@ -89,7 +89,7 @@ slowness_image(o_sub, s_list.max(), [o_sub.min(), o_sub.max()])
 plt.plot(*circle(3), 'k--')
 plt.xlabel('$s_x$ (s/km)', labelpad = -1)
 plt.ylabel('$s_y$ (s/km)', labelpad = -1)
-plt.title('D. Slowness Spectrum (N=3)', loc = 'left')
+plt.title('d. Slowness Spectrum (N=3)', loc = 'left')
 #%% E: PARK slowness spectrum
 plt.subplot(gs[5:7,1])
 with open('data/pkl/clean_aftershock_full.pkl', 'rb') as file:
@@ -104,7 +104,7 @@ plt.plot(*circle(3), 'k--')
 
 plt.xlabel('$s_x$ (s/km)', labelpad = -1)
 plt.ylabel("""$s_y$ (s/km)""", labelpad = -1)
-plt.title('E. Slowness Spectrum (N=22)', loc = 'left')
+plt.title('e. Slowness Spectrum (N=22)', loc = 'left')
 
 
 
@@ -113,6 +113,6 @@ plt.title('E. Slowness Spectrum (N=22)', loc = 'left')
 plt.gcf().set_size_inches(6.5, 9, forward=True) # max fig size for villarrica screen: 12.94x6.65 inch
 plt.tight_layout()
 #%%
-plt.savefig('figures/Fig3_array_response.png')
+plt.savefig('figures/Fig3_array_response.png', dpi=300)
 
 ####################

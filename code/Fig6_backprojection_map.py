@@ -81,11 +81,10 @@ ax.legend()
 ax.set_aspect(1/np.cos(lat_station * np.pi/180))
 fig.colorbar(a, ax = ax, location = 'top', ticks = 10**np.arange(3, 6), shrink = 0.35, label = 'Infrasound Production')
 fig.colorbar(b, ax = ax, location = 'right', ticks = np.arange(1500, 3001, 500), label = 'Elevation (m)')
-fig.savefig('figures/Fig6a_aftershock_backprojection_map.png')
+fig.savefig('figures/Fig6a_aftershock_backprojection_map.png', dpi = 300)
 
 
 #%% download seismic data for the Monte Cristo EQ backprojection plot
-import obspy, shutil
 from obspy.clients.fdsn.mass_downloader import GlobalDomain, Restrictions, MassDownloader
 
 ## change project_dir to match where you store these files
@@ -191,7 +190,7 @@ plt.xlabel('Time After Monte Cristo Earthquake (s)')
 plt.ylabel('Epicentral Distance (degrees)')
 plt.tight_layout()
 
-plt.savefig('figures/Fig6c_MonteCristo_seismograms.png')
+plt.savefig('figures/Fig6c_MonteCristo_seismograms.png', dpi = 300)
 #%% set up Monte Cristo backprojection
 slowness_threshold = 2
 with open('data/pkl/clean_MonteCristo_full.pkl', 'rb') as file:
@@ -318,4 +317,4 @@ for i, station in enumerate(station_info.Station):
     plt.text(station_info.Longitude[i], station_info.Latitude[i]+station_info.rms[i]*0.6e4, station_info.Station[i], size = 'small')
 
 
-fig.savefig('figures/Fig6b_MonteCristo_backprojection_map.png')
+fig.savefig('figures/Fig6b_MonteCristo_backprojection_map.png', dpi = 300)

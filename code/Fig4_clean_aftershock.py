@@ -70,7 +70,7 @@ for i in range(0, 3):
 # set_xlim leaves some padding; axis('image') changes the aspect ratio. This sets tight axis limits without forcing a bad aspect ratio.
 plt.gca().set_xbound(t[0],t[-1])
 plt.ylabel('Pa')
-plt.title('A. Infrasound Waveform', loc = 'left', fontsize = 11)
+plt.title('a. Infrasound Waveform', loc = 'left', fontsize = 11)
 plt.xticks(xticks, labels = [])
 plt.yticks([-2, 0, 2])
 
@@ -119,7 +119,7 @@ cleanbf.image(np.log(trim(spec_s, spec_s[:,w].max(), r*spec_s[:,w].max())), outp
 #plt.axvline(0, color = 'black', lw = 0.5)
 plt.axhline(slowness_threshold, color = 'black', lw = 0.5, ls = '--')
 plt.ylabel('s/km')
-plt.title('B. Power vs. Time, Slowness', loc = 'left')
+plt.title('b. Power vs. Time, Slowness', loc = 'left')
 w = output['original_sh'] < 4
 plt.plot(output['t'][w]-(event - loop_start), output['original_sh'][w], 'k.', markersize=5)
 plt.plot(output['t'][w]-(event - loop_start), output['original_sh'][w], 'w.', markersize=2)
@@ -132,7 +132,7 @@ plt.subplot(7,1,3)
 cleanbf.image(imageAdj(spec_baz), output['t']-(event - loop_start), baz, crosshairs = False)
 plt.ylabel('degrees')
 #plt.xlabel('Time after earthquake (seconds)')
-plt.title(f'C. Power vs Time, Backazimuth (Slowness > {slowness_threshold} s/km)', loc = 'left')
+plt.title(f'c. Power vs Time, Backazimuth (Slowness > {slowness_threshold} s/km)', loc = 'left')
 plt.plot(output['t']-(event - loop_start), (output['original_az']) % 360 - 180, 'k.', markersize=5)
 plt.plot(output['t']-(event - loop_start), (output['original_az']) % 360 - 180, 'w.', markersize=2)
 plt.yticks(baz_ticks)
@@ -198,7 +198,7 @@ plt.subplot(7,1,4)
 cleanbf.image(np.log(trim(spec_s, spec_s[:,w].max(), r*spec_s[:,w].max())), output['t']-(event - loop_start), sh, crosshairs = False)
 plt.axhline(slowness_threshold, color = 'black', lw = 0.5, ls = '--')
 plt.ylabel('s/km')
-plt.title('D. Power vs. Time, Slowness (3 sensors)', loc = 'left')
+plt.title('d. Power vs. Time, Slowness (3 sensors)', loc = 'left')
 w = output['original_sh'] < 4
 plt.plot(output['t'][w]-(event - loop_start), output['original_sh'][w], 'k.', markersize=5)
 plt.plot(output['t'][w]-(event - loop_start), output['original_sh'][w], 'w.', markersize=2)
@@ -210,7 +210,7 @@ plt.subplot(7,1,5)
 im = cleanbf.image(imageAdj(spec_baz), output['t']-(event - loop_start), baz, crosshairs = False) # im used later for colorbar
 plt.ylabel('degrees')
 #plt.xlabel('Time after earthquake (seconds)')
-plt.title(f'E. Power vs. Time, Backazimuth (Slowness > {slowness_threshold} s/km; 3 sensors)', loc = 'left')
+plt.title(f'e. Power vs. Time, Backazimuth (Slowness > {slowness_threshold} s/km; 3 sensors)', loc = 'left')
 plt.plot(output['t']-(event - loop_start), (output['original_az']) % 360 - 180, 'k.', markersize=5)
 plt.plot(output['t']-(event - loop_start), (output['original_az']) % 360 - 180, 'w.', markersize=2)
 plt.yticks(baz_ticks)
@@ -224,7 +224,7 @@ plt.subplots_adjust(hspace = 0.5)
 plt.subplot(7,1,6)
 plt.axhline(slowness_threshold, color = 'black', lw = 0.5, ls = '--')
 plt.ylabel('s/km')
-plt.title('F. Slowness, traditional beamforming (3 sensors vs. 20 sensors)', loc = 'left')
+plt.title('f. Slowness, traditional beamforming (3 sensors vs. 20 sensors)', loc = 'left')
 w = output['original_sh'] < 4
 plt.plot(output_full['t'][w]-(event - loop_start), output_full['original_sh'][w], 'b.', markersize=5)
 plt.plot(output_3['t'][w]-(event - loop_start), output_3['original_sh'][w], 'r.', markersize=5)
@@ -235,7 +235,7 @@ plt.gca().set_xbound(t[0],t[-1])
 plt.subplot(7,1,7)
 plt.ylabel('degrees')
 plt.xlabel('Time after earthquake (seconds)')
-plt.title('G. Backazimuth, traditional beamforming (3 sensors vs. 20 sensors)', loc = 'left')
+plt.title('g. Backazimuth, traditional beamforming (3 sensors vs. 20 sensors)', loc = 'left')
 plt.plot(output_full['t']-(event - loop_start), (output_full['original_az']) % 360 - 180, 'b.', markersize=5, label = 'N=20')
 plt.plot(output_3['t']-(event - loop_start), (output_3['original_az']) % 360 - 180, 'r.', markersize=5, label = 'N=3')
 plt.legend(loc='upper right', framealpha=1)
@@ -256,7 +256,7 @@ fig.subplots_adjust(right=0.91)
 
 
 #%% save figure
-plt.savefig('figures/Fig4_Aftershock_20_3_paper.png')
+plt.savefig('figures/Fig4_Aftershock_20_3_paper.png', dpi = 300)
 #%% calculate 6-station clean result for use in supplementary figure 
 
 calculate_new_beamform_result_6 = False # set to False after running the calculation once to save time

@@ -114,21 +114,13 @@ spec_baz = np.einsum('hijk->hj', spec_4[:,:,:,w])[:,ind]
 ac_max = np.quantile(spec_baz, 0.999)
 
 
-def trim(x, a, b): x[x>a]=a; x[x<b]=b; return x
-def image_trim_log(x): return(np.log(trim(x, ac_max, ac_max*r)))
-def image_show_outliers(x):
-    mean = np.einsum('ij->j', x)/x.shape[0]
-    std = np.sqrt(np.einsum('ij->j', (x - mean)**2)/x.shape[0])
-    x[x < (mean +2*std)] = 0
-    return np.log(trim(x, ac_max, r*ac_max))
-
 plt.subplot(5,1,1)
 cleanbf.image(image_trim_log(spec_s), output['t']-(event - loop_start), sh, crosshairs = False)
 plt.axhline(slowness_threshold, color = 'black', lw = 0.5, ls = '--')
 plt.ylabel('s/km')
 plt.xticks(np.arange(0, 3001, 500), labels = [])
 plt.yticks([0,1,2,3])
-plt.title('A. N=6, Slowness (6 sensors)', loc = 'left', fontsize = 11)
+plt.title('a. N=6, Slowness (6 sensors)', loc = 'left', fontsize = 11)
 w = output['original_sh'] < 4
 
 plt.subplot(5,1,2)
@@ -137,7 +129,7 @@ plt.ylabel('degrees')
 plt.xticks(np.arange(0, 3001, 500), labels = [])
 plt.yticks(baz_ticks)
 for i in baz_ticks: plt.axhline(i, color = 'gray', lw = 0.25)
-plt.title('B. N=6, Backazimuth (Slowness > 2 s/km)', loc = 'left')
+plt.title('b. N=6, Backazimuth (Slowness > 2 s/km)', loc = 'left')
 
 plt.subplot(5,1,3)
 im = cleanbf.image(image_show_outliers(spec_baz), output['t']-(event - loop_start), baz, crosshairs = False)
@@ -146,7 +138,7 @@ plt.ylabel('degrees')
 plt.xticks(np.arange(0, 3001, 500), labels = [])
 plt.yticks(baz_ticks)
 for i in baz_ticks: plt.axhline(i, color = 'gray', lw = 0.25)
-plt.title('C. N=6, Backazimuth (Slowness > 2 s/km; above-ambient)', loc = 'left', fontsize = 11)
+plt.title('c. N=6, Backazimuth (Slowness > 2 s/km; above-ambient)', loc = 'left', fontsize = 11)
 #%% N = 3
 with open(pkl_file3, 'rb') as file:
     d = pickle.load(file)
@@ -169,7 +161,7 @@ plt.ylabel('degrees')
 plt.xticks(np.arange(0, 3001, 500), labels = [])
 plt.yticks(baz_ticks)
 for i in baz_ticks: plt.axhline(i, color = 'gray', lw = 0.25)
-plt.title('D. N=3, Backazimuth (Slowness > 2 s/km; above-ambient)', loc = 'left', fontsize = 11)
+plt.title('d. N=3, Backazimuth (Slowness > 2 s/km; above-ambient)', loc = 'left', fontsize = 11)
     
 #%% full array
 with open(pkl_file, 'rb') as file:
@@ -192,7 +184,7 @@ plt.ylabel('degrees')#plt.xlabel('Time after earthquake (seconds)')
 plt.xticks(np.arange(0, 3001, 500))
 plt.yticks(baz_ticks)
 for i in baz_ticks: plt.axhline(i, color = 'gray', lw = 0.25)
-plt.title('E. N=17, Backazimuth (Slowness > 2 s/km; above-ambient)', loc = 'left', fontsize = 11)
+plt.title('e. N=17, Backazimuth (Slowness > 2 s/km; above-ambient)', loc = 'left', fontsize = 11)
 plt.xlabel('Time after earthquake (seconds)')
 plt.ylabel('degrees')
 
@@ -205,4 +197,4 @@ fig.subplots_adjust(right=0.91)
 cbar_ax = fig.add_axes([0.93, 0.25, 0.02, 0.5])
 fig.colorbar(im,cax=cbar_ax, label='Infrasound Power', ticks = [])
 #%%
-plt.savefig('figures/FigS1_montecristo_17_6_paper.png')
+plt.savefig('figures/FigS1_montecristo_17_6_paper.png', dpi = 300)
